@@ -1,0 +1,56 @@
+* {
+  border: none;
+  border-radius: 10px;
+
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 15px;
+  
+  min-height: 10px;
+
+  border: none;
+  margin: 5px;
+  background-color: transparent;
+}
+
+
+/*
+  MAIN BAR MODULES
+*/
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#custom-power,
+#custom-spotify-metadata {
+  padding: 10px;
+  background-color: #282828;
+}
+
+#custom-power {
+  padding-right: 12px;
+  padding-left: 10px;
+  color: #cc241d;
+}
+
+#custom-spotify-metadata {
+  border-radius: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*
+  POWER MENU BAR
+*/
+
+.powermenu {
+  color: #98971a;
+  background-color: #282828;
+}
+
+#custom-power-shutdown,
+#custom-power-reboot,
+#custom-power-logout,
+#custom-power-hibernate {
+  font-size: 20px;
+}

@@ -1,0 +1,39 @@
+{
+    "name": "powermenu",
+    "position": "right",
+    "layer": "top",
+
+    "margin-left": 10,
+    "margin-right": 10,
+    "margin-bottom": 550,
+
+    "spacing": 20,
+
+    "modules-center": [
+        "custom/power-shutdown", 
+        "custom/power-reboot", 
+        "custom/power-logout",
+        "custom/power-hibernate"
+    ],
+
+    "custom/power-shutdown": {
+        "format": " ⏻ ",
+        "tooltip": false,
+        "on-click": "systemctl poweroff"
+    },
+    "custom/power-reboot": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "systemctl reboot"
+    },
+    "custom/power-logout": {
+        "format": " 󰍃 ",
+        "tooltip": false,
+        "on-click": ""
+    },
+    "custom/power-hibernate": {
+        "format": " 󰒲 ",
+        "tooltip": false,
+        "on-click": "systemctl hibernate"
+    }
+}

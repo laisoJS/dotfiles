@@ -1,0 +1,81 @@
+{
+  "name": "main",
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": ["network", "pulseaudio", "tray", "custom/volume"],
+  "modules-center": ["custom/spotify-metadata"],
+  "modules-right": ["clock", "battery", "custom/power"],
+
+  "battery": {
+    "states" : {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  "clock": {
+    "format": " {:%Hh%M}",
+    "format-alt": " {:%d/%m/%Y}"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": " ",
+    "format-icons": {
+        "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": " ",
+        "headphone": " ",
+        "hands-free": " ",
+        "headset": " ",
+        "phone": " ",
+        "phone-muted": " ",
+        "portable": " ",
+        "car": " ",
+        "default": ["" , " ", " "]
+    },
+    "scroll-step": 5,
+    "on-click": "pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle",
+    "ignored-sinks": ["Easy Effects Sink"],
+    "max-volume": 150
+  },
+
+  "network": {
+    "format-wifi": " ",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": " ",
+
+    "on-click": "kcmshell6 kcm_networkmanagement",
+
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
+
+  "custom/power": {
+    "format": " ⏻ ",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/custom/power/toggle_powermenu.sh"
+  },
+
+  "custom/spotify-metadata": {
+    "format": "{}",
+    "max-length": 60,
+    "interval": 5,
+    "return-type": "json",
+    "exec": "~/.config/waybar/custom/spotify/metadata.sh",
+    "on-click-middle": "~/.config/waybar/custom/spotify/controls.sh",
+    "on-click-right": "~/.config/waybar/custom/spotify/controls.sh next",
+    "on-click": "~/.config/waybar/custom/spotify/controls.sh prev",
+    "signal": 5
+  }
+}
+
