@@ -1,16 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/zen.omp.toml)"
 
-if [[ -f "/opt/homebrew/bin/brew" ]] then
-  # If you're using macOS, you'll want this enabled
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-eval "$(zellij setup --generate-auto-start=zsh)"
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -23,9 +12,6 @@ fi
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
-
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -43,9 +29,6 @@ zinit snippet OMZP::command-not-found
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
 bindkey -e
@@ -80,12 +63,12 @@ alias ls='exa --icons --colour=auto'
 alias la='exa --icons --colour=auto -a'
 alias ll='exa --icons --colour=auto -lh'
 alias lla='exa --icons --colour=auto -lah'
-alias tree='exa --icons --tree'
+alias tree='exa --icons --tree --colour=auto'
 
 alias vim='nvim'
 alias vi='nvim'
 
-alias cat='bat'
+alias cat='bat --theme=Catppuccin\ Macchiato'
 alias man='tldr'
 alias grep='rg'
 
@@ -95,6 +78,11 @@ alias fastfetch='fastfetch --logo small'
 alias neofetch='fastfetch --logo small'
 
 # Shell integrations
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(zellij setup --generate-auto-start zsh)"

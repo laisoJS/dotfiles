@@ -21,16 +21,18 @@
 #pulseaudio,
 #network,
 #tray,
+#bluetooth,
 #custom-power,
 #custom-spotify-metadata {
+  color: #cad3f5;
   padding: 10px;
-  background-color: #282828;
+  background-color: #1e2030;
 }
 
 #custom-power {
   padding-right: 12px;
   padding-left: 10px;
-  color: #cc241d;
+  color: #b7bdf8;
 }
 
 #custom-spotify-metadata {
@@ -39,13 +41,20 @@
   padding-right: 20px;
 }
 
+#bluetooth.on {
+  color: #8aadf4;
+}
+#bluetooth.off {
+  color: #939ab7;
+}
+
 /*
   POWER MENU BAR
 */
 
 .powermenu {
-  color: #98971a;
-  background-color: #282828;
+  color: #b7bdf8;
+  background-color: #24273a;
 }
 
 #custom-power-shutdown,

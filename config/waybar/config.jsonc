@@ -3,7 +3,7 @@
   "layer": "top",
   "position": "top",
 
-  "modules-left": ["network", "pulseaudio", "tray", "custom/volume"],
+  "modules-left": ["network", "bluetooth", "pulseaudio", "tray"],
   "modules-center": ["custom/spotify-metadata"],
   "modules-right": ["clock", "battery", "custom/power"],
 
@@ -50,7 +50,7 @@
     "format-ethernet": "󰈀 ",
     "format-disconnected": " ",
 
-    "on-click": "kcmshell6 kcm_networkmanagement",
+    "on-double-click": "kcmshell6 kcm_networkmanagement",
 
     "tooltip": false
   },
@@ -63,7 +63,7 @@
   "custom/power": {
     "format": " ⏻ ",
     "tooltip": false,
-    "on-click": "~/.config/waybar/custom/power/toggle_powermenu.sh"
+    "on-click": "~/.config/waybar/custom/power/toggle_powermenuar.sh"
   },
 
   "custom/spotify-metadata": {
@@ -76,6 +76,15 @@
     "on-click-right": "~/.config/waybar/custom/spotify/controls.sh next",
     "on-click": "~/.config/waybar/custom/spotify/controls.sh prev",
     "signal": 5
+  },
+
+  "bluetooth": {
+    "format": "",
+	  "format-disabled": "", // an empty format will hide the module
+	  "format-connected": "",
+    "on-click": "$HOME/.config/waybar/custom/bluetooth/toggle.sh",
+    "on-click-right": "kcmshell6 kcm_bluetooth",
+    "tooltip-format-connected": "{device_alias}"
   }
 }
 
